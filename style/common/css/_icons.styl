@@ -1,0 +1,60 @@
+// -------------------
+// icon style
+// only for style.css
+// -------------------
+
+@import '_variable'
+@import '_mixins'
+
+  .includeIcon
+    display none
+  .icon
+    display inline-block
+
+  // svg sprite 非表示用
+  .icon-base
+    display none
+    symbol
+      width 16px
+      height 16px
+
+  .icon--size-s
+    width 16px
+    height 16px
+
+  .icon--size-m
+    width 24px
+    height 24px
+
+  .icon--size-l
+    width 28px
+    height 28px
+
+  .icon--color-action
+    fill var(--link-color)
+  .icon--color-basic
+    fill var(--txt-color)
+  .icon--color-info
+    fill var(--txt-light-color)
+  .icon--color-select
+    fill var(--select-color)
+  .icon--color-input
+    fill var(--input-color)
+  .icon--color-danger
+    fill var(--danger-color)
+  .icon--color-disabled
+    fill var(--disabled-light-color)
+
+.badge
+  @extend .r-round-badge
+  display inline-block
+  background var(--danger-color)
+  padding 0 8px
+  text-align center
+  height 20px
+  line-height 20px
+  margin-right 8px
+
+.badge--must
+  @extend .fs-xs
+  color var(--txt-light-color)

@@ -1,0 +1,60 @@
+// -------------------
+// helper style
+// only for common.css
+// -------------------
+
+@import '_variable'
+@import '_mixins'
+
+// font-size -------------------
+
+  .bold
+    font-weight bold!important
+  .lh_base
+    line-height 1.4!important
+  .lh_sentence
+    line-height 1.6!important
+  .op_30
+    opacity .3!important
+
+// layout -------------------
+
+  .tc
+    text-align center!important
+  .tl
+    text-align left!important
+
+// icn-size -------------------
+
+  .icn-size1
+    width 30px!important
+  .icn-size2
+    width 24px!important
+  .icn-size3
+    width 16px!important
+  .icn-size4
+    width 10px!important
+  .icn-size5
+    width 20px!important
+
+sizes = 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250 260 270 280 290 300 310 320 330 340 350 360 370 380 390 400 410 420 430 440 450 460 470 480 490 500 510 520 530 540 550 560 570 580 590 600 610 620 630 640 650 660 670 680 690 700 710 720 730 740 750 760 770 780 790 800 810 820 830 840 850 860 870 880 890 900 910 920 930 940 950 960 970 980 990 1000
+
+for num in sizes
+  .mb-{num}
+    margin-bottom: unit(num, px!important)
+  .mt-{num}
+    margin-top: unit(num, px!important)
+  .ml-{num}
+    margin-left: unit(num, px!important)
+  .mr-{num}
+    margin-right: unit(num, px!important)
+  .pb-{num}
+    padding-bottom: unit(num, px!important)
+  .pt-{num}
+    padding-top: unit(num, px!important)
+  .pl-{num}
+    padding-left: unit(num, px!important)
+  .pr-{num}
+    padding-right: unit(num, px!important)
+  .w{num}
+    width: unit(num, px!important)

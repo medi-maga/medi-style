@@ -1,0 +1,42 @@
+//- # hedear colmun global navigation mixin ---------------------------
+
+  ## example
+
+    +headerOptionMenuList(headerOptionMenuListData)
+
+  ## data
+
+    -
+      headerOptionMenuListData = [
+        { 'class': 'applist', 'link': '#', 'text': 'アプリ一覧', 'icon': 'true'},
+        { 'class': 'logout', 'link': '#', 'text': 'ログアウト' , 'icon': 'true'}
+      ]
+
+mixin headerOptionMenuList(data)
+  each i in data
+    .area-header
+      a.tap(href=`${i.link}`)
+        | #{i.text}
+        if 'true' == `${i.icon}`
+          +icon('arrow-thin_right', 'action', 's')
+
+//- # language Selection mixin ---------------------------
+  ## example
+    +headerLanguagelist(headerLanguagelistData)
+
+  ## data
+  -
+    headerLanguagelistData = [
+      { 'text': '日本語','option': '日本語',},
+      { 'text': '英語','option': '',}
+    ]
+    
+mixin headerLanguagelist(data)
+  p 言語 : 
+    .input-select
+      select(name='')
+        each i in data
+          if option == `${i.text}`
+            option(value=`${i.text}` selected) #{i.text}
+          else
+            option(value=`${i.text}`) #{i.text}

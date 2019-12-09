@@ -1,0 +1,84 @@
+// -------------------
+// title style
+// only for style.css
+// -------------------
+
+@import '_variable'
+@import '_mixins'
+
+// h2 -------------------
+
+  .title-h2
+    height 60px
+    background var(--ui-bg-color)
+    box-sizing border-box
+    position relative
+    display flex
+    align-items center
+    border-bottom 1px solid var(--border-color)
+    margin-bottom 8px
+    h2
+      @extend .elp
+      flex 1
+      letter-spacing 1.2px
+      color var(--txt-color)
+      text-overflow ellipsis
+      overflow hidden
+      @extend .fs-xl
+      @extend .fw-bold
+      .parentTxt
+        display block
+        color var(--link-color)
+        @extend .fs-xs
+        text-overflow ellipsis
+        overflow hidden
+        margin-bottom 2px
+        &:hover
+          text-decoration underline
+    .title-h2__btn-group
+      margin 0 16px 0 0
+    .btn
+      min-width 60px
+      margin 0 0 0 4px
+    .layout-col2 &
+      h2
+        margin-left 16px
+    .layout-col1 &
+      text-align center
+      background inherit
+      border none
+
+// h3 -------------------
+
+  .title-h3
+    height 36px
+    width 100%
+    box-sizing border-box
+    h3
+      letter-spacing 1.2px
+      @extend .fs-m
+      @extend .fw-bold
+      line-height 36px
+  .title-h3--icon
+    position relative
+    .icon
+      position absolute
+      top 10px
+      left 0
+    h3
+      margin-left 20px
+
+// h4 -------------------
+
+  .title-h4
+    align-items center
+    display flex
+    position relative
+    margin 16px 0 16px 0
+    h4
+      @extend .fw-bold
+    .area-btn-group
+      position absolute
+      right 0
+      .btn
+        margin-left 8px

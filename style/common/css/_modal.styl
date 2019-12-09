@@ -1,0 +1,44 @@
+// -------------------
+// button style
+// only for common.css
+// -------------------
+
+@import '_extend'
+@import '_variable'
+@import '_mixins'
+
+#modal
+  max-height calc(90% - 40px)
+  width 50%
+  margin 1.5em auto 0
+  background var(--ui-bg-color)
+  z-index 3
+  position fixed
+  display none
+  .area-remove
+    cursor pointer
+    position absolute
+    top -40px
+    right 0
+  .title-h2
+    width 100%
+    margin 0
+  .area-table
+    background-color var(--bg-color)
+    overflow scroll
+    height calc(100vh - 282px - 1.5em)
+    overflow-x hidden
+  .form-section
+    display unset
+    input
+      max-width 200px
+      margin 8px
+#overlay
+  z-index 2
+  display none
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 120%
+  background-color var(--overlay-color)

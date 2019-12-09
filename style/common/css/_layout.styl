@@ -1,0 +1,550 @@
+// -------------------
+// layout style
+// only for style.css
+// -------------------
+
+@import '_variable'
+@import '_mixins'
+
+// wrapper -------------------
+
+  .wrapper
+    -ms-flex-direction column
+    display flex
+    flex-direction column
+    width 100%
+    min-height 100%
+    background var(--border-color)
+    z-index 0
+
+// content-header -------------------
+
+  .content-header
+    -ms-flex none
+    -webkit-box-flex 0
+    position relative
+    width 100%
+    height 48px
+    background var(--bg-color-dark)
+    border-bottom 1px solid var(--border-color)
+    z-index 2
+    .content-header__col-l
+      display flex
+      align-items center
+      .area-icon
+        display none
+        position absolute
+        top 0
+        left 0
+        text-align center
+        cursor pointer
+        height 48px
+        width 60px
+        border-right 1px solid var(--border-color)
+        .icon
+          position relative
+          top 8px
+        p
+          position absolute
+          bottom 4px
+          left 11px
+          @extend .fs-xs
+          color var(--link-color)
+
+      .area-site-logo
+        a
+          width 152px
+          box-sizing border-box
+          display block
+          padding 14px 0 13px 16px
+        img
+          width 120px
+
+      .area-app-logo
+        a
+          display inline-block
+          padding-right 16px
+          padding-left 8px
+          position relative
+          height 48px
+          top -2px
+          img
+            position absolute
+            top 8px
+            left 8px
+            width 32px
+          p
+            position relative
+            top 16px
+            @extend .fs-s
+            @extend .fw-bold-l
+            color var(--txt-light-color)
+            margin-left 40px
+
+    .content-header__col-r
+      position absolute
+      top 0
+      right 0
+      .area-account
+        display flex
+        cursor pointer
+        .icon
+          margin 14px 4px 0 0
+        .area-name
+          p
+            font-size 14px
+            height 48px
+            line-height 48px
+            padding 0 8px 0 8px
+            max-width 220px
+            color var(--txt-color)
+            box-sizing border-box
+            @extend .elp
+            @extend .fs-s
+        .area-thumb
+          width 48px
+          height 48px
+          img
+            margin 7px
+            width 32px
+            height 32px
+            border 1px solid var(--ui-bg-color)
+        .area-icon
+          border-left 1px solid var(--border-color)
+          cursor pointer
+          height 48px
+          width 60px
+          text-align center
+          position relative
+          .icon
+            position relative
+            top 8px
+          p
+            position absolute
+            bottom 4px
+            left 4px
+            @extend .fs-xs
+            color var(--link-color)
+
+// content-nav -------------------
+
+  .layout-col2
+    .wrapper
+      @media all and (-ms-high-contrast:none)
+        height 100%
+    .content-side
+      z-index 1
+      background var(--ui-bg-color)
+      width 200px
+      min-width 200px
+      border-right 1px solid var(--border-color)
+      .area-header
+        border-bottom 1px solid var(--border-color)
+        padding 8px
+        height 60px
+        box-sizing border-box
+        img
+          position absolute
+          top 11px
+          left 8px
+          width 40px
+          height 40px
+        p
+          color var(--txt-color)
+          margin-left 50px
+          margin-top 13px
+      .area-body
+        border-bottom 1px solid var(--border-color)
+        padding 8px
+        .area-body__head
+          position relative
+          margin-bottom 8px
+          .icon
+            position absolute
+            top 10px
+            left 8px
+          p
+            color var(--txt-color)
+            padding-left 44px
+            padding-top 16px
+            padding-right 8px
+            @extend .fs-s
+        .area-btn
+          padding 8px 0
+          text-align center
+      .area-side
+        height auto
+        min-height 98%
+        position relative
+        width 100%
+        .area-nav
+          height auto
+          padding-bottom 72px
+          ul
+            height auto
+            li
+              border-bottom 1px solid var(--border-color)
+              a
+                box-sizing border-box
+                display block
+                width 200px
+                height 48px
+                line-height 48px
+                padding 0 16px
+                @extend .fs-m
+                @extend .fw-bold
+                position relative
+                .icon
+                  position absolute
+                  top 50%
+                  right 8px
+                  margin-top -8px
+        .area-logo
+          position absolute
+          bottom 20px
+          left 50%
+          margin-left -60px
+          img
+            width 120px
+    .area-close
+      display none
+      position fixed
+      top 0
+      left 260px
+      height 48px
+      width 48px
+      text-align center
+      z-index 4
+      .icon
+        position relative
+        top 10px
+        z-index 1
+// profile-nav -------------------
+
+  .profile-side
+    z-index 4
+    position fixed
+    top 48px
+    background var(--ui-bg-color)
+    height 10vh
+    width 240px
+    opacity 0
+    display none
+    border 1px solid var(--border-color)
+    .input-select
+      select
+        width 200px
+    .area-btn
+      padding 8px 0 0 0
+      text-align center
+      border-bottom 1px solid var(--border-color)
+      button
+        width 200px
+        margin-bottom 8px
+    .area-logout
+      text-align center
+      a
+        color var(--link-color)
+        padding 8px
+        width calc(100% - 16px)
+        display inline-block
+    .area-remove
+      display none
+      position absolute
+      top 0
+      right 260px
+      height 48px
+      width 48px
+      text-align center
+      .icon
+        position relative
+        top 10px
+        z-index 1
+    .area-header
+      display flex
+      position relative
+      a
+        flex auto
+        padding 0 0 0 8px
+        border-bottom 1px solid var(--border-color)
+        box-sizing border-box
+        height 49px
+        align-items center
+        display inline-flex
+        color var(--link-color)
+        svg
+          position absolute
+          right 8px
+      img
+        position absolute
+        top 11px
+        left 8px
+        width 40px
+        height 40px
+      p
+        color var(--txt-color)
+        margin-left 50px
+        margin-top 13px
+    .area-body
+      .area-body__head
+        background var(--detail-head-bg-color)
+        position relative
+        min-height 36px
+        .icon
+          position absolute
+          top 3px
+          left 8px
+        p
+          color var(--txt-color)
+          padding-left 44px
+          padding-top 8px
+          padding-right 8px
+          padding-bottom 10px
+          @extend .fs-s
+    +breakpoint(tb-max)
+      z-index 1
+      position fixed
+      top 49px
+      left 0
+      background var(--ui-bg-color)
+      height calc(100vh - 49px)
+      width 200px
+      border-right 1px solid var(--border-color)
+      .input-select
+        select
+          width 244px
+      .area-btn
+        text-align center
+        button
+          width 244px
+          margin-bottom 8px
+      .area-remove
+        display none
+        position absolute
+      .area-body
+        .area-body__head
+          position relative
+          .icon
+            position absolute
+            top 3px
+            left 8px
+          p
+            color var(--txt-color)
+            padding-left 44px
+            padding-top 8px
+            padding-right 8px
+            padding-bottom 10px
+            @extend .fs-s
+      .area-nav
+        ul
+          li
+            border-bottom 1px solid var(--border-color)
+            a
+              box-sizing border-box
+              display block
+              width 200px
+              height 48px
+              line-height 48px
+              padding 0 16px
+              @extend .fs-m
+              @extend .fw-bold
+              position relative
+              .icon
+                position absolute
+                top 50%
+                right 8px
+                margin-top -8px
+      .area-logo
+        position absolute
+        bottom 20px
+        left 50%
+        margin-left -60px
+        img
+          width 120px
+
+  .profile-opened
+    .profile-side
+      box-shadow 0 4px 10px 0 rgba(0, 0, 0, .2)
+      opacity 1
+      left calc(100% - 240px)
+      .area-nav
+        ul
+          li
+            a
+              width 201px
+
+// section-nav -------------------
+
+  .section-nav
+    background var(--tabbar-bg-color)
+    margin-left -16px
+    margin-top -16px
+    border-bottom 1px solid var(--border-color)
+    margin-bottom 16px
+    width calc(100% + 32px)
+    padding 0
+    ul
+      margin 0
+      padding 16px 16px 0 16px
+      display flex
+      overflow auto
+    li
+      white-space nowrap
+      &:first-child a
+        border-radius 4px 0 0 0
+      &:last-child a
+        border-radius 0 4px 0 0
+        border-right 1px solid var(--border-color)
+      a
+        position relative
+        border 1px solid var(--border-color)
+        border-right none
+        border-bottom none
+        background var(--ui-bg-color)
+        color var(--link-color)
+        display inline-block
+        min-width 120px
+        height 48px
+        line-height 48px
+        text-align center
+        padding 0 20px
+    .active
+      a
+        background var(--select-color)
+        color var(--txt-light-color)
+
+// wrapper__inner -------------------
+
+  .wrapper__inner
+    -ms-flex auto
+    -webkit-box-flex 1
+    justify-content center
+    display flex
+    flex auto
+    @media all and (-ms-high-contrast:none)
+      background var(--border-color)
+    .content-body
+      flex 0 1 1080px
+      min-width 320px
+      background var(--bg-color)
+      overflow-x hidden
+      overflow-y auto
+      .area-btn
+        padding 40px 0
+        text-align center
+      .area-btn--sub
+        padding 0 0 8px
+        float right
+        .btn
+          min-width 80px
+      .area-btn--backTxt
+        padding 0
+        margin-top 20px
+        text-align left
+        .icon
+          margin-right 8px
+        a
+          display flex
+          justify-content center
+          align-items center
+          padding 0
+          color var(--link-color)
+          &:hover
+            text-decoration underline
+      section
+        padding 0 16px 16px 16px
+
+// colmun -------------------
+
+  .layout-col1
+    .content-body
+      margin 0 auto 0
+      background var(--bg-color)
+      height auto
+
+// content-footer -------------------
+
+  .content-footer
+    -ms-flex none
+    -webkit-box-flex 0
+    position relative
+    z-index 2
+    line-height 1.5em
+    display flex
+    align-items center
+    background-color var(--footer-bg-color-dark)
+    white-space nowrap
+    padding 4px 8px
+    flex-wrap wrap
+    a
+      color var(--txt-light-color)
+      position relative
+      flex none
+      font-size 10px
+      line-height 24px
+      height 24px
+      padding 0 7px
+      &:hover
+        text-decoration underline
+        &:active
+          text-decoration none
+          opacity 1
+          background var(--active-color)
+    .links
+      flex 0 1 auto
+      display flex
+      justify-content center
+      flex-wrap wrap
+    .copyright
+      flex auto
+      display flex
+      justify-content flex-end
+      flex-wrap wrap
+
+  +breakpoint(tb-max)
+    .content-footer
+      justify-content center
+      .links
+        width 100%
+        padding-bottom 16px
+      .copyright
+        justify-content center
+
+  .content-footer--multi
+    display block
+    a
+      line-height 16px
+      height 16px
+    .languages
+      padding-top 4px
+      display flex
+      justify-content flex-start
+      flex-wrap wrap
+      border-bottom 1px solid var(--footer-border-color)
+      a
+        margin-bottom 8px
+        border-right 1px solid var(--footer-border-color)
+        &:last-child
+          border-right none !important
+    .footer-column
+      display flex
+      padding-top 4px
+      a
+        padding-top 4px
+        padding-bottom 4px
+  +breakpoint(tb-max)
+    .content-footer--multi
+      .languages
+        justify-content center
+      .footer-column
+        display block
+      .links
+        padding-bottom 8px
+
+// index
+  .item-list
+    padding 16px
+    max-width 800px
+    min-width 320px
+    margin 0 auto 0
+    height auto  

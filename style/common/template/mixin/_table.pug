@@ -1,0 +1,135 @@
+//- # table mixin ---------------------------
+
+  ## example
+
+    +table(tableData)
+
+  ## data
+
+    -
+      tableData = [
+        {
+          'th': [
+            { 'checkbox': true },
+            { 'text': '種別', 'width': 'w80' },
+            { 'text': '名称', 'align': 'tl' },
+            { 'type': 'sort', 'text': '最終通信日時', 'width': 'w120' },
+            { 'type': 'sort', 'text': '最終キッティング日時', 'width': 'w120' },
+            { 'text': 'IP', 'width': 'w120' },
+            { 'text': 'MAC', 'width': 'w120' },
+            { 'linkIcon': true }
+          ]
+        },
+        {
+          'tdLink': 'application_detail_apiscope.html',
+          'tdData': [
+            { 'type': 'checkbox' },
+            { 'type': 'linkCell', 'text': 'アイコン' },
+            { 'type': 'linkCell', 'text': 'センサデバイス1', 'align': 'align-left' },
+            { 'type': 'linkCell', 'text': '2017/12/23/23:23' },
+            { 'type': 'linkCell', 'text': '2017/12/23/23:23' },
+            { 'type': 'linkCell', 'text': '2017/12/23/23:23' },
+            { 'type': 'linkCell', 'text': '2017/12/23/23:23' },
+            { 'type': 'linkIcon' }
+          ]
+        },
+        { 'paging': true, 'displayOnly': true }
+      ]
+
+mixin table(data)
+
+  //- td cell用
+  mixin td()
+    each i in data[1].tdData
+      case i.type
+        when 'checkbox'
+          td.cell-cb
+            .inner
+              +tableCb()
+
+        when 'linkIcon'
+          td.cell-icon
+            .inner
+              +icon('arrow-thin_right', 'action', 's')
+            a(href=data[1].tdLink)
+
+        when 'optionMenu'
+          td.cell-option-menu
+            .inner(data-toggle='dropdown')
+              +icon('menu-option', 'action', 's')
+              .menu-overlay
+              ul.dropdown-menu
+                li.tap: p ダウンロード
+                li.tap: p 切り取り
+                li.tap: p コピー
+                li.tap: p 名称変更
+                li.tap: p 削除
+
+        when 'linkCell'
+          td(class=`${i.align || ''}`)
+            .inner
+              p #{i.text}
+            a(href=data[1].tdLink)
+
+        when 'modalOpen'
+          td(class=`${i.align || ''} modal-open-class`)
+            .inner
+              p #{i.text}
+
+        when 'image'
+          td.cell-image(class=`${i.align || ''}`)
+            .inner
+              img(src=`${rootPath}images/${i.image}`)
+            a(href=data[1].tdLink)
+
+        default
+          td(class=`${i.align || ''}`)
+            .inner
+              p #{i.text}
+
+  //- checkbox用
+  mixin tableCb()
+    label.tap
+      input(type='checkbox', name='')
+      .cb: +icon('check', 'input', 's')
+
+  .area-table
+    table
+      thead
+        tr
+          each i in data[0].th
+
+            case i.type
+              when 'checkbox'
+                th.cell-cb(class=`${i.priority || 'priority99'}`)
+                  +tableCb()
+
+              when 'linkIcon'
+                th.cell-icon(class=`${i.priority || 'priority99'}`)
+
+              when 'sort'
+                th(class=`tapSort cell-sort select ${i.width || ''} ${i.align || ''} ${i.priority || 'priority99'}`)
+                  span #{i.text}
+                  span(id=`sort`)
+                    +icon('sort', 'info', 's')
+                  span(id=`sort-down`)
+                    +icon('arrow-trg_down', 'info', 's')
+                  span(id=`sort-up`)
+                    +icon('arrow-trg_up', 'info', 's')
+
+              default
+                th(class=`${i.width || ''} ${i.align || ''} ${i.priority || 'priority99'}`)
+                  | #{i.text}
+
+      tbody
+        if data[2].displayOnly
+          - for (var i = 0; i < 5; i++)
+            tr.odd: +td()
+            tr.even: +td()
+        else
+          - for (var i = 0; i < 5; i++)
+            tr.odd.tapTable: +td()
+            tr.even.tapTable: +td()
+
+  if data[2].paging
+    +listPagination('active', 'active', 'disabled')

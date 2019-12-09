@@ -1,0 +1,47 @@
+// -------------------
+// mixins
+// use for all files
+// -------------------
+
+@import '_variable'
+
+// transition -------------------
+
+  transition(n)
+    transition n
+    -moz-transition n
+    -webkit-transition n
+    -o-transition n
+    -ms-transition n
+
+  transition-property(n)
+    transition-property n
+    -moz-transition-property n
+    -webkit-transition-property n
+    -o-transition-property n
+    -ms-transition-property n
+
+// media query -------------------
+
+  // @stylint off
+  breakpoint(bpName)
+    for name in bpName
+      if name == 'mb-min'
+        @media only screen and (min-width: screen-mobile)
+          {block}
+      if name == 'tb-min'
+        @media only screen and (min-width: screen-tablet)
+          {block}
+      if name == 'dt-min'
+        @media only screen and (min-width: screen-desktop)
+          {block}
+      if name == 'mb-max'
+        @media only screen and (max-width: screen-mobile)
+          {block}
+      if name == 'tb-max'
+        @media only screen and (max-width: screen-tablet)
+          {block}
+      if name == 'dt-max'
+        @media only screen and (max-width: screen-desktop)
+          {block}
+  // @stylint on

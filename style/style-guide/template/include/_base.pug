@@ -1,0 +1,26 @@
+extends ../../../common/template/_base
+
+block theme
+  link(rel='stylesheet', href=rootPath + 'css/color-light.css')
+
+block head
+  link(rel='stylesheet', href=rootPath + 'css/styleguide.css')
+  //- link(rel='shortcut icon', type='image/x-icon', href=rootPath + 'images/favicon.ico')
+  title #{pageTitle}
+
+block main
+
+  .wrapper
+    if colClass == 'col1'
+      include _layout_col1
+
+    if colClass == 'col2'
+      include _layout_col2
+
+    //- モーダル
+    #modal
+      block modal
+
+  //- モーダル用オーバーレイ
+  #overlay
+  #drawerOverlay

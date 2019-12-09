@@ -1,0 +1,156 @@
+// -------------------
+// style-guide.css
+// -------------------
+@import '../../common/css/_extend'
+@import '../../common/css/_variable'
+
+//-- commons ---
+  .fonts
+    color var(--ui-bg-color) !important
+
+//---- wrapper ----
+  .wrapper
+    .body-right
+      position relative
+      padding-top 16px
+      flex-direction column
+      background #000000
+      margin-bottom 16px 
+
+//---- contents ----
+  .title-description
+    margin-bottom 20px
+    border-left 4px solid var(--ui-bg-color)
+    .title
+      margin-left 16px
+      font-size 2.0rem
+      line-height 24px
+      font-weight 400
+
+  .contents-area
+    margin-bottom 40px
+
+    .contents-area__image
+      position relative
+      display flex
+      justify-content center
+      align-items: center
+      margin-bottom 16px
+      .contents-area__image-inner
+        .contents-image
+          img
+
+    .contents-area__text-info
+      font-weight 400
+      line-height 1.5
+      .contents-area__text-kicker
+        display inline-block
+        text-transform uppercase
+        font-size 1.4rem
+        letter-spacing 3px
+        border-left 4px solid var(--ui-bg-color)
+        border-right 4px solid var(--ui-bg-color)
+        margin-bottom 16px
+        padding 0 16px
+      .contents-area__text-heading
+        letter-spacing 0
+        font-size 2.8rem
+        margin-bottom 16px
+      .contents-area__text-body
+        letter-spacing 0
+        font-size 1.8rem
+        margin-bottom 16px
+      .contents-area__text-link
+        font-weight 400
+        font-size 1.6rem
+        letter-spacing 3px
+        line-height 1.5
+        margin-bottom 40px
+        a
+          background-position 0 100%
+          background-repeat no-repeat
+          background-size 100% 0
+          border-bottom 2px solid var(--ui-bg-color)
+          color var(--ui-bg-color)
+          text-decoration none
+
+    .contents-area__text
+      font-size 1.4rem
+      font-weight 400
+      line-height 1.5
+      letter-spacing 3px
+      margin-bottom 24px
+
+  .card-area
+    .card-area__card-list
+      box-sizing inherit
+      margin-bottom 40px
+      .card
+        font-weight 400
+        letter-spacing 0
+        letter-spacing .1px
+        font-size 16px
+        line-height 1.5
+        display -webkit-flex
+        display -ms-flexbox
+        display flex
+        margin-bottom: 25px
+        overflow hidden
+        box-sizing inherit
+        margin 8px
+        .card-image 
+          position relative
+          min-width 90px
+          min-height 90px
+          margin-right 16px
+          overflow hidden
+          img
+            position absolute
+            top 50%
+            left 50%
+            -webkit-transform translate(-50%, -50%)
+            -ms-transform translate(-50%, -50%)
+            transform translate(-50%, -50%)
+        .card-txt
+          margin-left 8px
+          font-size 1.6rem
+          font-weight bold 
+      .card-main
+        position absolute
+        right 0
+        top 0
+        padding-top 16px
+        padding-right 16px
+        img 
+          max-height 350px
+
+//---- wrapper is breakpoint----
+
+  +breakpoint(tb-max)
+    .layout-col1
+      .content-header
+        .content-header__col-l
+          .area-app-logo
+            margin-left 0px
+  .wrapper__inner
+    .content-body
+      flex 0 1 1280px
+
+//- IE 
+  @media all and (-ms-high-contrast:none)
+    html 
+      display flex
+      flex-direction column
+      height auto
+      .layout-col1
+        display flex
+        flex-direction column
+        .wrapper
+          display flex
+          flex-direction column
+          min-height 100vh
+          height auto
+          .wrapper__inner
+            background none
+            .content-body
+              margin 0

@@ -1,0 +1,68 @@
+//- # footer colmun global navigation mixin ---------------------------
+
+  ## example
+
+    +appFooter(appFooter)
+
+  ## data
+
+    -
+      appFooter = [
+        { 'footerText': [
+            {'text': 'プライバシーポリシー' ,'link': '#'},
+            {'text': '利用規約' ,'link': '#'},
+            {'text': 'お問い合わせ' ,'link': '#'},
+            {'text': 'お知らせ' , 'link': '#'}
+            ]
+        },
+        {'copyright': '© xxxxx','link': '#'}
+      ]
+
+mixin appFooter(data)
+    .content-footer
+      .links
+        each i in data[0].footerText
+          a(href=`${i.link}`) #{i.text}
+      .copyright
+        a(href=`${data[1].link}`) #{data[1].copyright}
+
+//- # footer colmun Language navigation mixin ---------------------------
+  ## example
+    +appFooterMulti(appFooterMulti)
+
+  ## data
+    -
+      appFooterMulti = [
+        { 'footerText': [
+            {'text': 'プライバシーポリシー' ,'link': '#'},
+            {'text': '利用規約' ,'link': '#'},
+            {'text': 'お問い合わせ' ,'link': '#'},
+            {'text': 'お知らせ' , 'link': '#'},
+            { 'text': 'オンラインマニュアル' ,'link': '#'}
+          ]
+        },
+        { 'copyright': '© xxxxxx','link': '#'},
+        { 'languagelist':[
+            {'text': 'Bahasa Indonesia','link': '#'}, {'text': 'Deutsch', 'link': '#'}, 
+            {'text': 'English', 'link': '#'}, {'text': 'Español', 'link': '#'}, 
+            {'text': 'Français', 'link': '#'}, {'text': 'Italiano', 'link': '#'},
+            {'text': 'Português', 'link': '#'},{'text': 'Tiếng', 'link': '#'}, 
+            {'text': 'Việt', 'link': '#'}, {'text': 'Türkçe', 'link': '#'}, 
+            {'text': 'Ρусский', 'link': '#'}, {'text': 'ไทย', 'link': '#'}, 
+            {'text': '日本語', 'link': '#'}, {'text': '한국어', 'link': '#'}, 
+            {'text': '中文 (简体)', 'link': '#'}, {'text': '中文 (繁體)', 'link': '#'}
+          ]
+        }
+      ]
+
+mixin appFooterMulti(data)
+  .content-footer.content-footer--multi
+    .languages
+      each language in data[2].languagelist
+        a(href=`${language.link}`) #{language.text}
+    .footer-column
+      .links
+        each link in data[0].footerText
+          a(href=`${link.link}`) #{link.text}
+      .copyright
+        a(href=`${data[1].link}`) #{data[1].copyright}

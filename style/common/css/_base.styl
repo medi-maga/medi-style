@@ -1,0 +1,46 @@
+// -------------------
+// base style
+// only for style.css
+// -------------------
+
+@import '_variable'
+@import '_mixins'
+
+  html
+    font-size 62.5%
+    height 100%
+  body
+    display block
+    height 100%
+    width 100%
+    font-size 1.4em
+    line-height 1.4
+    @extend .base_font
+    color var(--txt-color)
+    tap-highlight-color var(--reset-color)
+    -webkit-tap-highlight-color var(--reset-color)
+    -moz-tap-highlight-color var(--reset-color)
+
+
+  a,button
+    color var(--txt-color)
+    cursor pointer
+    // &:active
+    //   opacity .8
+
+  table
+    width 100%
+
+  p,a,span
+    word-wrap break-word
+
+  // @stylint off
+  ::-webkit-input-placeholder
+    color var(--input-placeholder-color)
+  ::-moz-placeholder
+    color var(--input-placeholder-color)
+  :-ms-input-placeholder
+    color var(--input-placeholder-color)
+  :-moz-placeholder
+    color var(--input-placeholder-color)
+  // @stylint on

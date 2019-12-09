@@ -1,0 +1,78 @@
+extends include/_base
+
+block data
+  include include/_data
+  - pageTitle = 'Top page'
+  - colClass = 'col1'
+  - header = 'true'
+  - contentSide = 'true'
+  - footer_multi = 'true'
+  - footer = 'true'
+  - appNameTxt = ' logo title'
+  -
+    appFooter = [
+      {   
+        'footerText': [
+          {
+            'text': 'プライバシーポリシー' ,
+            'link': '#'
+          },
+          {
+            'text': '利用規約' ,
+            'link': '#'
+          },
+          {
+            'text': 'お問い合わせ' ,
+            'link': '#'
+          },
+          {
+            'text': 'お知らせ' ,
+            'link': '#'
+          }
+        ]
+      },
+      {
+        'copyright': '© xxxxx Ltd. All Rights Reserved.',
+        'link': '#'
+      }
+    ]
+
+block body
+
+  +titleH2('page title imageArea ')
+
+  .body-right
+    section
+      .title-description
+        .title.fonts NATIONAL GEOGRAPHIC
+      .contents-area
+        //- image
+        .contents-area__image
+          .contents-area__image-inner
+            .contents-image
+              img(src="../images/image.jpg")
+        //- text info
+        .contents-area__text-info
+          .contents-area__text-kicker.fonts No.11 2019
+          .contents-area__text-heading.fonts A WORLD ON THE MOVE
+          .contents-area__text-body.fonts text body hogehoge hogehoge hogehogehogehogehogehogehogehoge hogehogehogehoge hogehoge
+          .contents-area__text-link.fonts 
+            a(href="#") hogelink
+
+        .contents-area__text.fonts contents list
+        .card-area
+          .card-area__card-list
+            .card
+              .card-image
+                img(src="../images/icon-90.jpg")
+              .card-txt.fonts card title
+            .card
+              .card-image
+                img(src="../images/icon-90.jpg")
+              .card-txt.fonts card title
+            .card
+              .card-image
+                img(src="../images/icon-90.jpg")
+              .card-txt.fonts card title
+
+block script

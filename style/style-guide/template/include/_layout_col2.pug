@@ -1,0 +1,20 @@
+if header == 'true'
+  include _header
+  block header
+
+.area-close#drawerClose
+  +icon('remove-thin', 'info', 'l')
+
+.wrapper__inner
+  
+  if contentSide == 'true'
+    .content-side
+      .area-side
+        +navGlobal(navGlobal)
+
+  .content-body
+    block body
+      
+if footer == 'true'
+  include _footer
+  block footer

@@ -1,0 +1,37 @@
+unless appName == 'login'
+  .content-header
+    .content-header__col-l
+      if colClass == 'col2'
+        if  contentSide == 'true'
+          .area-icon#drawerMenu.tap
+            +icon('menu','action','s')
+            p メニュー
+      unless appName == 'error'
+        .area-app-logo
+          a(href='#')
+            //- img(src=`${rootPath}images/app-symbol.svg`)
+            p #{appNameTxt}
+      else
+        .area-site-logo
+          //- a(href='#')
+          //-   img(src=`${rootPath}images/app-symbol.svg`)
+              
+      if countrySelect == 'true'
+        .area-language-select
+          +headerLanguagelist(headerLanguagelistData)
+
+    if profileMenu == 'true'
+      .content-header__col-r
+        .area-account#profileMenu.tap
+          .area-name
+            p  太郎
+          .area-thumb
+            img(src=`${rootPath}images/noimage-user.svg`)
+          +icon('arrow-trg_down', 'basic', 's')
+    block header
+  
+if profileSide == 'true'
+  .profile-side
+    .area-remove.tap#drawerClose
+      +icon('remove-thin', 'info', 'l')
+    +headerOptionMenuList(headerOptionMenuListData)

@@ -1,0 +1,74 @@
+// -------------------
+// common.css
+// only for common.css
+// -------------------
+
+@import '_variable'
+@import '_extend'
+@import '_mixins'
+
+// modal content -------------------
+
+  .modal-content--either
+    padding 20px
+    p
+      color var(--txt-color)
+      margin-bottom 40px
+    .area-btn
+      text-align center
+
+// Result 0 case -------------------
+
+  .area-descZero
+    text-align center
+    margin-top 40px
+    p
+      @extend .fs-xl
+      color var(--txt-color)
+
+// .layout-col1 -------------------
+
+.layout-col1
+  .area-symbol
+    text-align center
+    margin 0 auto
+    width 100%
+    padding 20px 0
+    display flex
+    justify-content center
+    align-items center
+    p
+      margin-left 8px
+      color var(--txt-color)
+      @extend .fs-l
+
+// .area-check -------------------
+
+  .area-check
+    width 180px
+    margin 0 auto
+    label
+      margin 0
+
+// .breadcrumbs -------------------
+
+  .breadcrumbs
+    background var(--ui-bg-color)
+    margin -8px -16px 16px
+    padding 16px
+    border-bottom 1px solid var(--border-color)
+    li
+      display inline-block
+      a
+        span
+          @extend .fs-s
+          color var(--link-color)
+          margin-right 8px
+        svg
+          position relative
+          top 4px
+          margin-right 8px
+      &:last-child
+        span
+          @extend .fs-s
+          color var(--txt-color)

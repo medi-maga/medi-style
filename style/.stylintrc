@@ -1,0 +1,50 @@
+{
+  "blocks": false,                  // @block
+  "cssLiteral": "never",            // @css
+  "extendPref": false,              // @extend or @extends
+  "quotePref": false,               // '' or ""
+  "none": false,                  // none or 0
+  "zeroUnits": "never",            // 0 or 0px
+  "colons": "never",                // コロン
+  "semicolons": "never",            // セミコロン
+  "brackets": "never",              // {}
+  "colors": "always",               // 色の変数指定
+  "placeholders": false,            // プレースホルダ変数拡張
+  "prefixVarsWithDollar": false, // 変数指定時に$を使うか。
+  "commaSpace": false,              // コンマ後スペース
+  "commentSpace": false,            // コメント後スペース
+  "trailingWhitespace": "never",    // 末尾のスペース
+  "parenSpace": false,              // 括弧内の余分なスペースの使用
+  "mixed": false,                   // スペース、タブ混在
+  "indentPref": 2,                  // インデント
+  "valid": true,                    // 有効なプロパティ、セレクタ名
+  "leadingZero": "never",           // 小数点の不要な0をチェック
+  "zIndexNormalize": false,         // z-indexの深さを指定する
+  "depthLimit": false,              // セレクタの深さ
+  "duplicates": true,               // セレクタ、プロパティの重複
+  "globalDupe": false,              // セレクタ、プロパティの重複(ファイル間)
+  "universal": true,                // 非効率なセレクタのインスタンスを指摘する
+  "namingConvention": false,        // クラス、ID、および変数宣言の命名規則
+  "namingConventionStrict": false,  // defaultは変数名のみで、namingConventionがtrueの場合にクラス、IDも含める。
+  "noImportant": false,             // !importantを使ってる場合
+  "efficient": false,               // プロパティ記述の効率
+  "sortOrder": false,               // プロパティ宣言の順序指定
+  "stackedProperties": "never",     // プロパティを一行で記述するか。
+  "exclude": [],                    // 指定ファイルlint除外
+  "groupOutputByFile": false,       // 出力を分類するか
+  "reporterOptions": {
+    "columns": [
+      "lineData",
+      "severity",
+      "rule",
+      "description"
+    ],
+    "columnSplitter": "  ",
+    "showHeaders": false,
+    "truncate": false
+  },                                // 出力のスタイル
+  "maxErrors": false,               // エラー最大数
+  "maxWarnings": false,             // 警告最大数
+  "customProperties": [],           // エイリアス
+  "mixins": []                      // エイリアス
+}

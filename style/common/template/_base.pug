@@ -1,0 +1,33 @@
+block data
+
+include _mixin
+
+doctype html
+html(lang='ja')
+
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no')
+    meta(name='format-detection', content='telephone=no')  
+    link(rel='stylesheet', href='//fonts.googleapis.com/earlyaccess/notosansjp.css')
+      
+    block theme
+    
+    link(rel='stylesheet', href=rootPath + 'css/common.css')
+
+    block head
+
+  body(class=`${pageClass} layout-${colClass}`)
+
+    block main
+
+    //- include svg sprite file
+    img.includeIcon(src=rootPath + 'images/sprite_icon.svg')
+    script(src=rootPath + 'javascripts/jquery3.2.1.min.js')
+    script(src=rootPath + 'javascripts/popper.min.js')
+    script(src=rootPath + 'javascripts/bootstrap.min.js')
+    script(src=rootPath + 'javascripts/common.js')
+    script(src=rootPath + 'javascripts/plotly-graph/plotly-latest.min.js')
+    script(defer, src=rootPath + 'javascripts/svgxuse.min.js')
+    script(src=rootPath + 'javascripts/' + appName + '.js')
+    block script

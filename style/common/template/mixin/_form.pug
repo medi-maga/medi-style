@@ -1,0 +1,579 @@
+//- # formSection mixin ---------------------------
+
+  ## example
+
+    +formSection(true, '企業名', false, '', true, '説明文')
+      +mixin
+
+mixin formSection(must, title, err, errTxt, explain, explainTxt)
+
+  .form-section
+    .area-head
+
+      //- 必須判定
+      if must
+        i.badge.badge--must 必須
+
+      //- 項目タイトル
+      p.title #{title}
+
+    .area-body
+
+      //- mixin読み込み
+      block
+
+      //- エラー表示判定
+      if err
+        .area-err
+          +icon('caution-tri','danger','s')
+          p #{errTxt}
+
+      //- 説明文章表示
+      if explain
+        .area-explain #{explainTxt}
+
+//- # inputLabel mixin ---------------------------
+
+  ## example
+
+    +inputLabel('なまえ', 'label')
+
+mixin inputLabel(must, title, err, errTxt, explain, explainTxt)
+  .area-body__inner
+
+    .area-badge
+      //- 必須判定
+      if must
+        i.badge.badge--must 必須
+
+      //- 項目タイトル
+      p.title #{title}
+
+    //- mixin読み込み
+    block
+
+    //- エラー表示判定
+    if err
+      .area-err
+        +icon('caution-tri','danger','s')
+        p #{errTxt}
+
+    //- 説明文章表示
+    if explain
+      .area-explain #{explainTxt}
+
+mixin inputLabelTitle(txt)
+  .title-h4
+    h4 #{txt}
+
+//- # inputTxt mixin ---------------------------
+
+  ## example
+
+    +inputTxt('basic', 'text', 'input-txt--size-m', '株式会社オプティム')
+
+mixin inputTxt(style, type, size, placeholder)
+  .input-txt(class=`input-txt--${style} input-txt--size-${size}`)
+    input(type=`${type}`, placeholder=`${placeholder}`)
+
+mixin inputTxtMultiple(style, type, size, placeholder, option)
+  case option
+    when 'removeOption'
+      .area-remove
+        .input-txt(class=`input-txt--${style} input-txt--size-${size}`)
+          input(type=`${type}`, placeholder=`${placeholder}`)
+        .area-icon.tap
+          +icon('remove', 'basic', 's')
+    default
+      .input-txt(class=`input-txt--${style} input-txt--size-${size}`)
+        input(type=`${type}`, placeholder=`${placeholder}`)
+
+//- # inputFile mixin ---------------------------
+
+  ## example
+
+    +inputFile('noimage')
+
+mixin inputFile(imgFileName)
+
+  .input-image
+    .area-image
+      img(src=`${rootPath}images/${imgFileName}.svg`)
+    label(for='file', class='btn tap btn--c-action btn--size-xs')
+      span ファイルを選択
+      input(type='file', id='file')
+    +button('danger', 'xs', '画像を削除')
+
+//- # inputTextarea mixin ---------------------------
+
+  ## example
+
+    +inputTextarea('アプリケーションに関する説明文章が入ります。', basic)
+
+mixin inputTextarea(txt, style)
+  .input-textarea(class=`input-textarea--${style}`)
+    textarea(placeholder=`${txt}`)
+
+//- # confirm mixin ---------------------------
+
+  ## option
+
+    @linkOption  テキストリンク挿入時に利用
+    @imageOption 画像表示時に利用
+
+  ## example
+
+    ### default
+      +confirmSection('名前', 'オプティム太郎', 'link')
+
+    ### linkOption
+      +confirmSection('プロモーションURL', 'http://google.com', 'linkOption')
+
+    ### imageOption
+      +confirmSection('アイコン', rootPath + 'images/app_icon_cloudVison.svg', 'imageOption')
+
+    ### columnOption
+      +confirmSection('アイコン', 'item', 'columnOption')
+
+mixin confirmSection(title, item, option)
+  .form-section.form-section--confirm
+    .area-head
+      p.title #{title}
+    .area-body
+      case option
+        when 'linkOption'
+          p
+            a.txt-link(href=`${item}`) #{item}
+        when 'imageOption'
+          img(src=`${item}`, width='60', height='60')
+        when 'multiple'
+          p #{item}
+          p #{item}
+          p #{item}
+        when 'columnOption'
+          .confirm-column
+            p #{item}
+            p #{item}
+            p #{item}
+            p #{item}
+            p #{item}
+            p #{item}
+        when 'labelOption'
+          block
+        default
+          p #{item}
+
+mixin confirmLabel(title)
+  .area-body__inner
+    label
+
+      //- 項目タイトル
+      p.title #{title}
+
+      //- mixin読み込み
+      block
+
+mixin confirmTxt(item,option)
+  .confirm-area
+    case option
+      when 'linkOption'
+        p
+          a.txt-link(href=`${item}`) #{item}
+      when 'linkOptionMultiple'
+        .confirm-column
+          p
+            a.txt-link(href=`${item}`) #{item}
+          p
+            a.txt-link(href=`${item}`) #{item}
+          p
+            a.txt-link(href=`${item}`) #{item}
+      when 'imageOption'
+        img(src=`${item}`, width='60', height='60')
+      when 'multiple'
+        .confirm-column
+          p #{item}
+          p #{item}
+          p #{item}
+      when 'labelOption'
+        block
+      default
+        p #{item}
+        
+//- # errMessage mixin ---------------------------
+  
+  ## example
+    +errMessage('入力内容に誤りがあります')
+
+mixin errMessage(txt)
+  .area-errMessage
+    +icon('caution-tri','danger','s', option)
+    p #{txt}
+
+//- # inputSelect mixin ---------------------------
+  
+  ## example
+    +inputSelect('選択してください', 'スタッフ', '監督者', '作業者', '補佐官', '監督者')
+
+mixin inputSelect(selectList1, selectList2, selectList3, selectList4, selectList5,option)
+  .input-select
+    select(name='')
+      if option == `${selectList1}`
+        option(value=`${selectList1}` selected) #{selectList1}
+      else
+        option(value=`${selectList1}`) #{selectList1}
+
+      if option == `${selectList2}`
+        option(value=`${selectList2}` selected) #{selectList2}
+      else
+        option(value=`${selectList2}`) #{selectList2}
+
+      if option == `${selectList3}`
+        option(value=`${selectList3}` selected) #{selectList3}
+      else
+        option(value=`${selectList3}`) #{selectList3}
+
+      if option == `${selectList4}`
+        option(value=`${selectList14}` selected) #{selectList4}
+      else
+        option(value=`${selectList4}`) #{selectList4}
+
+      if option == `${selectList5}`
+        option(value=`${selectList5}` selected) #{selectList5}
+      else
+        option(value=`${selectList5}`) #{selectList5}
+
+//- # inputDescription mixin ---------------------------
+  
+  ## example
+    +inputDescription('以下の内容で更新しますが宜しいでしょうか？')
+
+mixin inputDescription(txt)
+  .area-input-description
+    p #{txt}
+
+
+//- # searchSection mixin ---------------------------
+  
+  ## example
+    -
+      searchSectionData = [
+        {
+          'type': 'inputText',
+          'placeholder': 'キーワード検索'
+        },
+        {
+          'type': 'inputSelect',
+          'label': '管理種別',
+          'item1': 'すべて',
+          'item2': 'スタッフ',
+          'item3': '管理者'
+        }
+      ]
+
+    +searchSection(searchSectionData)
+
+mixin searchSection(data)
+  .title-h3.title-h3--icon
+    +icon('search','basic','s')
+    h3 絞り込み検索
+
+  .form-section.form-section--search
+    ul
+      each i in data
+        case i.type
+          when 'inputText'
+            li
+              label
+                +inputTxt('basic', 'text', 'l', 'キーワード検索')
+          when 'inputSelect'
+            li
+              label
+                p #{i.label}
+                +inputSelect(i.item1, i.item2, i.item3, i.item4, i.item5)
+    .area-btn--search
+      +button('action', 'm', '検索')
+
+mixin buttonSection()
+  .area-btn--sub
+    block
+
+//- # tableOption mixin ---------------------------
+  
+  ## example
+
+    +tableOption('disabled', '削除確認', 'modal')
+
+mixin tableOption(btnType, btnTxt, option)
+
+  .form-section.form-section--option
+    .area-icon
+      +icon('arrow-indicate','basic','s')
+    p チェックした項目を
+    if option == 'modal'
+      +button(btnType, 'm', btnTxt, 'modal-open')
+    else
+      +button(btnType, 'm', btnTxt)
+
+//- # searchZeroSection mixin ---------------------------
+
+  ## example
+
+    +searchZeroSection('該当の項目はありません。')
+
+mixin searchZeroSection(txt)
+  .area-descZero
+    p #{txt}
+
+//- # checkbox mixin ---------------------------
+
+  ## example
+
+    .input-check
+      +check('check1', 'チェック１', 'checked', 'disabled')
+      +check('check1', 'チェック２', 'checked')
+      +check('check1', 'チェック３', '','disabled')
+      +check('check1', 'チェック４')
+
+mixin check(name, text, checked, disabled)
+  label.tap
+    if checked == 'checked' && disabled == 'disabled'
+      input(type='checkbox', name=`${name}`, checked='' disabled='')
+    else if checked == 'checked'
+      input(type='checkbox', name=`${name}`, checked='')
+    else if disabled == 'disabled'
+      input(type='checkbox', name=`${name}`, disabled='')
+    else
+      input(type='checkbox', name=`${name}`)
+    .cb: +icon('check', 'input', 's')
+    p #{text}
+
+
+//- # radio button mixin ---------------------------
+
+  ## example
+
+    .input-radio
+      +radio('radio1', 'ラジオ１', 'checked' 'disabled')
+      +radio('radio1', 'ラジオ２', 'checked' )
+      +radio('radio1', 'ラジオ３', '','disabled')
+      +radio('radio1', 'ラジオ４')
+mixin radio(name, text, checked, disabled)
+  label.tap
+    if checked == 'checked' && disabled == 'disabled'
+      input(type='radio', name=`${name}`, checked='' disabled='')
+    else if checked == 'checked'
+      input(type='radio', name=`${name}`, checked='')
+    else if disabled == 'disabled'
+      input(type='radio', name=`${name}`, disabled='')
+    else
+      input(type='radio', name=`${name}`)
+    i
+    p #{text}
+
+//- # inputTxtFromTo mixin ---------------------------
+
+  ## example
+
+    +inputTxtFromTo('tel', 'text', 'm', 'from', 'to')
+
+mixin inputTxtFromTo(style, type, size, placeholder1, placeholder2)
+  .area-fromto
+    .input-txt(class=`input-txt--${style} input-txt--size-${size}`)
+      input(type=`${type}`, placeholder=`${placeholder1}`)
+    span -
+    .input-txt(class=`input-txt--${style} input-txt--size-${size}`)
+      input(type=`${type}`, placeholder=`${placeholder2}`)
+
+
+//- # inputTime mixin
+
+  ## ampm
+
+    @true     午後04:42:31
+    @false    16:42:31
+
+  ## second
+    @true     16:42:31
+    @false    16:42
+
+  ## example 
+
+    +inputTime('false', 'false', 'm', '検索日時', )
+
+mixin inputTime(ampm, second, size, placeholder )
+  .datetimepicker
+    .input-txt.input-group.date#datetimepicker-time
+      input.form-control(placeholder=`${placeholder}`, class=`input-txt--size-${size}`)
+      span.input-group-addon
+        +icon('calendar', 'basic', 's')
+    span.hide-datetimepicker
+      span#arrow-thin-right
+        +icon('arrow-thin_right', 'action', 's')
+      span#arrow-thin-left
+        +icon('arrow-thin_left', 'action', 's')
+      span#arrow-double-right
+        +icon('arrow-double_right', 'action', 's')
+      span#arrow-double-left
+        +icon('arrow-double_left', 'action', 's')
+      span#arrow-thin-up
+        +icon('arrow-thin_up', 'action', 's')
+      span#arrow-thin-down
+        +icon('arrow-thin_down', 'action', 's')
+      span#datetimepicker-time-param(data-ampm=`${ampm}`, data-second=`${second}`)
+
+//- # inputDate mixin
+
+
+  ## example 
+
+    +inputDate('m', '検索日時', )
+
+mixin inputDate(size, placeholder )
+  .datetimepicker
+    .input-txt.input-group.date#datetimepicker-date
+      input.form-control(placeholder=`${placeholder}`, class=`input-txt--size-${size}`)
+      span.input-group-addon
+        +icon('calendar', 'basic', 's')
+    span.hide-datetimepicker
+      span#arrow-thin-right
+        +icon('arrow-thin_right', 'action', 's')
+      span#arrow-thin-left
+        +icon('arrow-thin_left', 'action', 's')
+      span#arrow-double-right
+        +icon('arrow-double_right', 'action', 's')
+      span#arrow-double-left
+        +icon('arrow-double_left', 'action', 's')
+      span#arrow-thin-up
+        +icon('arrow-thin_up', 'action', 's')
+      span#arrow-thin-down
+        +icon('arrow-thin_down', 'action', 's')
+
+//- # inputDateTime mixin
+
+  ## ampm
+
+    @true     午後04:42:31
+    @false    16:42:31
+
+  ## second
+    @true     16:42:31
+    @false    16:42
+
+  ## example 
+
+    +inputDateTime('false', 'false', 'm', '検索日時', )
+
+mixin inputDateTime(ampm, second, size, placeholder )
+  .datetimepicker
+    .input-txt.input-group.date#datetimepicker-datetime
+      input.form-control(placeholder=`${placeholder}`, class=`input-txt--size-${size}`)
+      span.input-group-addon
+        +icon('calendar', 'basic', 's')
+    span.hide-datetimepicker
+      span#arrow-thin-right
+        +icon('arrow-thin_right', 'action', 's')
+      span#arrow-thin-left
+        +icon('arrow-thin_left', 'action', 's')
+      span#arrow-double-right
+        +icon('arrow-double_right', 'action', 's')
+      span#arrow-double-left
+        +icon('arrow-double_left', 'action', 's')
+      span#arrow-thin-up
+        +icon('arrow-thin_up', 'action', 's')
+      span#arrow-thin-down
+        +icon('arrow-thin_down', 'action', 's')
+      span#datetimepicker-datetime-param(data-ampm=`${ampm}`, data-second=`${second}`)
+
+//- # inputDateFromTo mixin
+
+  ## format
+
+    @datetime 2018/01/22 16:42:31
+    @date     2018/01/22
+    @time     16:42:31
+
+  ## ampm
+
+    @true     午後04:42:31
+    @false    16:42:31
+
+  ## second
+    @true     16:42:31
+    @false    16:42
+
+  ## example 
+
+    +inputDateFromTo('datetime', 'false', 'false', 'm', '開始日時', '終了日時')
+
+mixin inputDateFromTo(format, ampm, second, size, placeholder1, placeholder2 )
+  .datetimepicker
+    .input-txt.input-group.date#datetimepicker2
+      input.form-control(placeholder=`${placeholder1}`, class=`input-txt--size-${size}`)
+      span.input-group-addon
+        +icon('calendar', 'basic', 's')
+    .input-txt.input-group.date.input-group-connection 〜
+    .input-txt.input-group.date#datetimepicker3
+      input.form-control(placeholder=`${placeholder2}`, class=`input-txt--size-${size}`)
+      span.input-group-addon
+        +icon('calendar', 'basic', 's')
+    span.hide-datetimepicker
+      span#arrow-thin-right
+        +icon('arrow-thin_right', 'action', 's')
+      span#arrow-thin-left
+        +icon('arrow-thin_left', 'action', 's')
+      span#arrow-double-right
+        +icon('arrow-double_right', 'action', 's')
+      span#arrow-double-left
+        +icon('arrow-double_left', 'action', 's')
+      span#arrow-thin-up
+        +icon('arrow-thin_up', 'action', 's')
+      span#arrow-thin-down
+        +icon('arrow-thin_down', 'action', 's')
+      span#datetimepicker-param2(data-format=`${format}`, data-ampm=`${ampm}`, data-second=`${second}`)
+
+//- # form mixin ---------------------------
+
+  ## example
+  
+    +formOuter
+      +formHead()
+        +formMust('必須')
+        +formTitle('パスワード設定')
+      +formBody()
+        +inputTxt('basic', 'password', 'm', '')
+        +formError('入力内容に誤りがあります。')
+        +formExplain('8文字以上必須。半角英数字・記号の混在を推奨')  
+
+mixin formOuter()
+  .form-section
+    block
+
+mixin formHead()
+  .area-head
+    block
+
+mixin formBody()
+  .area-body
+    block
+
+mixin formBodyInner()
+  .area-body__inner
+    block
+
+mixin formTitle(title)
+  p.title #{title}
+    block
+
+mixin formError(errTxt)
+  .area-err
+    +icon('caution-tri','danger','s')
+    p #{errTxt}
+    block
+      
+mixin formMust(must)
+  i.badge.badge--must #{must}
+    block
+      
+mixin formExplain(explainTxt)
+  .area-explain #{explainTxt}
+    block

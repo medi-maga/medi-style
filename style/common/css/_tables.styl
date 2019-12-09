@@ -1,0 +1,215 @@
+// -------------------
+// form style
+// only for style.css
+// -------------------
+
+@import '_variable'
+@import '_mixins'
+
+  // base -------------------
+
+    .area-table
+      clear both
+      table
+        table-layout fixed
+        thead
+          background-color var(--table-header-bg-color)
+          border-bottom 1px solid var(--border-color)
+          th
+            height 48px
+            color var(--txt-light-color)
+            @extend .fs-s
+            vertical-align middle
+            font-weight normal
+            padding 0 10px
+            @extend .elp
+            position relative
+        tbody
+          tr
+            border-bottom 1px solid var(--border-color)
+          td
+            padding 0 10px
+            position relative
+            max-width 0
+            .inner
+              display flex
+              align-items center
+              justify-content center
+              height 48px
+              width 100%
+              box-sizing border-box
+              color var(--txt-color)
+              @extend .fs-m
+              p
+                @extend .elp
+            a
+              height 48px
+              display block
+              position absolute
+              left 0
+              top 0
+              right 0
+              bottom 0
+
+          // stripe background
+          .odd
+            background-color var(--table-row-bg-color)
+            .cell-cb
+              background-color var(--table-row-bg-color)
+
+          .even
+            background-color var(--table-row-even-bg-color)
+            .cell-cb
+              background-color var(--table-row-even-bg-color)
+
+  // optional -------------------
+
+    // checkbox cell
+
+      .area-table
+        .cell-cb
+          padding 0
+          width 48px
+          position relative
+          label
+            height 48px
+            width 48px
+            display block
+            cursor pointer
+          .cb
+            z-index 1
+            position absolute
+            top 50%
+            left 50%
+            margin-top -8px
+            margin-left -8px
+            @extend .r-round
+            background var(--input-color)
+            width 16px
+            height 16px
+            display block
+            border 1px solid var(--border-color)
+            .icon
+              position relative
+              top 2px
+              left 2px
+              width 12px
+              height 12px
+              display none
+
+          input
+            display none
+            &:checked
+              & + .cb
+                background var(--select-color)
+                .icon
+                  display block
+
+    // th sort cell
+
+      .area-table
+        .cell-sort
+          cursor pointer
+          .icon
+            position relative
+            top 3px
+            left 4px
+          &.selectUp,
+          &.selectDown
+            background-color var(--table-header-bg-color)
+          span
+            &[id^="sort"]
+              display none
+          &.select
+            span
+              &#sort
+                display unset
+          &.selectUp
+            span
+              &#sort-up
+                display unset
+          &.selectDown
+            span
+              &#sort-down
+                display unset
+
+    // align left cell
+
+      .area-table
+        .align-left
+          .inner
+            justify-content flex-start
+
+    // td icon cell
+
+      .area-table
+        .cell-icon
+          width 48px
+          box-sizing border-box
+          position relative
+          svg
+            display flex
+            justify-content center
+            align-items center
+          .inner
+            height inherit
+
+    // td option menu cell
+
+      .area-table
+        .cell-option-menu
+          position: relative;
+          padding: 0
+          .inner
+            cursor: pointer;
+            width: 48px
+            height: 48px
+          .menu-overlay
+            cursor: default;
+            display: none;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 3;
+          .dropdown-menu
+            top:-1px!important;
+            left:-11px!important;
+            z-index: 3;
+            background: #FFF
+            display none
+            border: 1px solid #dadada
+            border-bottom: none
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            li
+              position: relative;
+              border-bottom: 1px solid #dadada
+              line-height: 48px
+              height: 48px
+              width: 200px;
+              padding: 0 16px;
+          .dropdown-menu.show
+            display: block
+        .cell-option-menu.show
+          background: var(--select-color)
+          svg
+            fill var(--txt-light-color)
+          .menu-overlay
+            display: block
+
+    // td image cell
+
+      .area-table
+        .cell-image
+          padding 0
+          width 48px
+          position relative
+          img
+            top 50%
+            left 50%
+            height 28px
+            width 28px
+            margin-left -14px
+            margin-top -14px
+            position absolute

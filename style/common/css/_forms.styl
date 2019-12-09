@@ -1,0 +1,551 @@
+// -------------------
+// form style
+// only for style.css
+// -------------------
+
+@import '_variable'
+@import '_mixins'
+
+// input txt style -------------------
+
+  .form-section
+    .input-txt
+      input
+        width 100%
+        box-shadow inset 0 2px 8px 0 var(--input-shadow)
+        @extend .r-round-input
+        background var(--ui-bg-color)
+        border 1px solid var(--border-color)
+        margin-top 8px
+        box-sizing border-box
+        height 36px
+        line-height 36px
+        @extend .fs-r
+        padding 0 8px
+        color var(--txt-color)
+
+    .input-txt--err
+      input
+        border 1px solid var(--danger-color)
+        box-sizing border-box
+        background var(--danger-light-color)
+
+    .input-txt--num
+      span
+        margin 0 8px
+        position relative
+        top 5px
+        color var(--txt-color)
+
+    .input-txt--label
+      label
+        .title
+          color var(--txt-color)
+          margin-top 8px
+
+    .area-fromto
+      .input-txt
+        display inline-block
+      span
+        margin 0 10px 0 10px
+        color var(--txt-color)
+        position relative
+        top 3px
+        left 2px
+
+    .title-h4
+      border-bottom 1px solid var(--border-color)
+      border-top 1px solid var(--border-color)
+      padding 8px 8px
+      margin 16px -8px 0 -7px
+      background var(--bg-color)
+      h4
+        font-weight normal
+        color var(--txt-color)
+        @extend .fs-m
+
+// input txt size -------------------
+
+  .input-txt--size-s
+    width 60px
+
+  .input-txt--size-m
+    width 200px
+
+  .input-txt--size-l
+    width 100%
+    max-width 400px
+
+// form search layout -------------------
+
+  .form-section--search
+    padding 8px 0 0
+    margin-bottom 1px
+    position relative
+    clear both
+    ul
+      width calc(100% - 100px)
+      @extend .clearfix
+      li
+        display inline-block
+        margin-bottom 8px
+        float left
+        position relative
+        padding-right 16px
+        padding-left 16px
+        border-right 1px solid var(--border-color)
+        &:first-child
+          padding-left 8px
+        &:last-child
+          border none
+        label
+          display block
+          padding 0
+          p
+            @extend .fs-s
+            display inline-block
+            color var(--txt-color)
+            margin-right 8px
+        .input-select, .input-txt
+          display inline-block
+        .input-txt
+          width 100%
+          input
+            margin-top 0
+            max-width 300px
+            width 280px
+        .input-select
+          padding-top 0
+    .area-btn--search
+      position absolute
+      bottom 8px
+      right 8px
+      .btn
+        min-width 80px
+    .separate
+      border-right 1px solid var(--border-color)
+      padding-right 16px
+    .area-icon
+      .icon
+        padding 0 0 0 16px
+        margin-top 6px
+
+// for table include checkbox action -------------------
+
+  .form-section--option
+    padding 8px 0 8px 16px
+    p
+      margin-left 28px
+      margin-right 8px
+      margin-top 8px
+      @extend .fs-s
+      display inline-block
+      color var(--txt-color)
+    .input-select, .input-txt
+      display inline-block
+    .input-txt
+      input
+        margin-top 0
+    .input-select
+      padding-top 0
+      select
+        min-width 120px!important
+    .btn
+      min-width 80px!important
+    .area-icon
+      position relative
+      .icon
+        position absolute
+        top 14px
+        left 2px
+
+// form layout -------------------
+
+  .form-section
+    display flex
+    background var(--ui-bg-color)
+    .area-head
+      min-height 52px
+      background var(--detail-head-bg-color)
+      padding 16px
+      box-sizing border-box
+      min-width 230px
+      width 230px
+      display flex
+      border-bottom 1px solid var(--border-color)
+      .title
+        width 100%
+        color var(--txt-color)
+        display inline-block
+        flex 1
+    .area-body
+      flex 1
+      border-bottom 1px solid var(--border-color)
+      min-height 52px
+      padding 0 8px 8px 8px
+      box-sizing border-box
+      background var(--ui-bg-color)
+      width 70%
+      +breakpoint(tb-max)
+        width auto
+      .area-body__inner
+        border-bottom 1px solid var(--border-light-color)
+        padding 8px 0
+        .area-badge
+          display flex
+        .title
+          width 100%
+          display inline-block
+          flex 1
+          @extend .fs-m
+        &:last-child
+          border none
+      .area-err
+        position relative
+        margin-top 8px
+        .icon
+          top 4px
+          left 0
+          position absolute
+          display inline-block
+        p
+          margin-left 20px
+          color var(--danger-color)
+          display inline-block
+      .area-explain
+        margin-top 8px
+        color var(--hint-color)
+        @extend .fs-s
+
+// input style -------------------
+
+  .form-section--confirm
+    .area-body
+      padding 16px 16px 8px 16px
+      p
+        margin-bottom 8px
+        color var(--txt-color)
+      .area-body__inner
+        padding 0 0 8px 0
+        margin-bottom 16px
+        &:last-child
+          margin-bottom 0
+          padding 0
+        label
+          display block
+          ul
+            li
+              display inline-block
+              margin-right 8px
+              p
+                color var(--txt-color)
+                background var(--ui-row-bg-color)
+                padding 8px
+                @extend .r-round
+
+  .area-agreement
+    background var(--ui-bg-color)
+    overflow scroll
+    max-height 320px
+    padding 20px
+    box-sizing border-box
+
+  .input-image
+    padding 8px 0 0
+    .area-image
+      @extend .clearfix
+      margin-bottom 8px
+      img
+        width 120px
+        float left
+    input
+      display none
+    label
+      cursor pointer
+    .btn
+      margin 0 5px 0 0
+
+  .input-select
+    padding 8px 0 0
+    select
+      border 1px solid var(--border-color)
+      cursor pointer
+      height 36px
+      box-sizing border-box
+      min-width 120px
+      color var(--txt-color)
+
+  .input-textarea
+    padding 8px 0 0
+    textarea
+      box-shadow inset 0 2px 8px 0 var(--input-shadow)
+      padding 8px
+      height 34px
+      width 100%
+      max-width 800px
+      min-height 80px
+      box-sizing border-box
+      border 1px solid var(--border-color)
+      @extend .fs-r
+      @extend .r-round-input
+        
+  .input-textarea--err
+    textarea
+      border 1px solid var(--danger-color)
+      box-sizing border-box
+      background var(--danger-light-color)
+    
+  .input-radio
+    padding 8px 0 0
+    @extend .clearfix
+    label
+      float left
+      padding 8px
+      position relative
+      cursor pointer
+      margin-right 20px
+    input
+      display none
+      &:checked
+        & + i
+          &::after
+            content ""
+            background var(--select-color)
+            box-sizing border-box
+            width 10px
+            height 10px
+            display block
+            position absolute
+            top 14px
+            left 12px
+            @extend .r-circle
+      &:checked:disabled
+        & + i
+          &::after
+            content ""
+            background var(--disabled-light-color)
+            box-sizing border-box
+            width 10px
+            height 10px
+            display block
+            position absolute
+            top 14px
+            left 12px
+            @extend .r-circle
+      &:disabled
+        & + i
+          &::after
+            content ""
+            position absolute
+            top 11px
+            left 9px
+            background var(--disabled-bg-color)
+            width 16px
+            height 16px
+            display block
+            @extend .r-circle
+    i
+      &::before
+        content ""
+        border 1px solid var(--border-color)
+        position absolute
+        top 10px
+        left 8px
+        background var(--input-color)
+        width 16px
+        height 16px
+        display block
+        @extend .r-circle
+    p
+      padding-left 28px
+      color var(--txt-color)
+      @extend .fs-m
+
+  .input-check
+    padding 8px 0 0
+    position relative
+    display flex
+    flex-wrap wrap
+    label
+      padding 8px
+      position relative
+      cursor pointer
+      margin-right 20px
+      .tapOver
+        @extend .r-round
+    .cb
+      z-index 1
+      position absolute
+      top 10px
+      left 8px
+      @extend .r-round-input
+      background var(--ui-bg-color)
+      border 1px solid var(--border-color)
+      width 16px
+      height 16px
+      display block
+      .icon
+        position relative
+        top 2px
+        left 2px
+        width 12px
+        height 12px
+        display none
+
+    input
+      display none
+      &:checked
+        & + .cb
+          background var(--select-color)
+          .icon
+            display block
+      &:disabled
+        & + .cb
+          background var(--disabled-bg-color)
+          border 1px solid var(--disabled-border-color)
+      &:disabled:checked
+          & + .cb
+            background var(--ui-bg-color)
+            border 1px solid var(--disabled-border-color)
+            .icon
+              fill var(--disabled-light-color)
+    p
+      padding-left 28px
+      color var(--txt-color)
+      @extend .fs-m
+
+  .input-check--column
+    +breakpoint(tb-max)
+      label
+        width calc(100% - 36px)
+    +breakpoint(tb-min)
+      label
+        width calc(100% / 2 - 36px)
+    +breakpoint(dt-min)
+      label
+        width calc(100% / 3 - 36px)
+
+  .input-txt-multiple
+    button
+      margin 5px 0 0 0
+    .area-remove
+      display flex
+      .area-icon
+        position relative
+        width 36px
+        height 36px
+        text-align center
+        line-height 36px
+        margin-top 8px
+        cursor pointer
+        .icon
+          position relative
+          top 1px
+        .tapOver
+          @extend .r-round
+  .confirm-check--column
+    display flex
+    flex-wrap wrap
+    +breakpoint(tb-max)
+      p
+        width calc(100% - 36px)
+    +breakpoint(tb-min)
+      p
+        width calc(100% / 2 - 36px)
+    +breakpoint(dt-min)
+      p
+        width calc(100% / 3 - 36px)
+
+.area-errMessage
+  margin-top 20px
+  border 1px solid var(--danger-color)
+  @extend .r-round
+  background var(--danger-light-color)
+  padding 8px 0
+  text-align center
+  .icon, p
+    display inline-block
+  .icon
+    position relative
+    top 4px
+    right 4px
+  p
+    color var(--danger-color)
+    @extend .fs-m
+
+.select-btn-multiple-section
+  background var(--ui-bg-color)
+  padding 16px 16px 16px
+  ul
+    margin-bottom 8px
+    li
+      border-top 1px solid var(--border-color)
+      padding 8px 0
+      &:first-child
+        padding-top 0
+        border none
+      p
+        display inline-block
+      .icon
+        margin-left 8px
+        position relative
+        top 2px
+        cursor pointer
+  .btn
+    margin 0
+
+.datetimepicker
+  @import '_datetimepicker'
+
+// language Selection
+.area-language-select
+  display flex
+  align-items center
+  flex auto
+  justify-content flex-end
+  .input-select
+    padding 0 8px 0 8px
+
+// confirm style
+.confirm-area
+  margin 8px 0 0 8px
+  .confirm-column
+    p
+      margin 16px 0 8px 0
+      
+
+// .area-description -------------------
+
+  .area-input-description
+    .layout-col1 &
+      margin-bottom 16px
+    .layout-col2 &
+      margin-bottom 8px
+      padding-left 16px
+      padding-right 16px
+    p
+      padding 16px
+      box-sizing border-box
+      border 1px solid var(--border-color)
+      @extend .r-round
+      background var(--info-light-color)
+
+  
+  .area-text-description
+    margin 8px 0 8px 0
+    
+    .area-description-inner
+      display flex
+      align-items center
+      position relative
+      padding 16px
+      box-sizing border-box
+      border 1px solid var(--border-color)
+      background var(--info-light-color)
+      border-radius 4px
+      .icon
+        left 8px
+        position absolute
+        display inline-block
+      p
+        display inline-block

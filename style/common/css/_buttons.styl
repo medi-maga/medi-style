@@ -1,0 +1,215 @@
+// -------------------
+// button style
+// only for style.css
+// -------------------
+
+@import '_variable'
+@import '_mixins'
+
+// common -------------------
+
+  .btn
+    text-align center !important
+    @extend .r-round
+    box-sizing border-box
+    position relative
+    display inline-block
+// colors -------------------
+
+  .btn--c-action
+    color var(--txt-light-color)
+    background-color var(--link-color)
+
+  .btn--c-cancel
+    color var(--link-color)
+    background-color var(--txt-light-color)
+    border 1px solid var(--link-color)
+
+  .btn--c-success
+    color var(--txt-light-color)
+    background-color var(--success-color)
+
+  .btn--c-select
+    color var(--txt-light-color)
+    background-color var(--select-color)
+
+  .btn--c-danger
+    color var(--txt-light-color)
+    background-color var(--danger-color)
+
+  .btn--c-disabled
+    color var(--txt-light-color)
+    background-color var(--disabled-light-color)
+
+  .btn--c-fb
+    color var(--txt-light-color)
+    background var(--social-facebook-color)
+
+  .btn--c-gp
+    color var(--txt-light-color)
+    background var(--social-google-color)
+
+// size -------------------
+
+  .btn--size-xs
+    height 26px
+    line-height 26px
+    min-width 50px
+    @extend .fs-s
+    padding 0 10px
+
+  .btn--size-s
+    height 32px
+    line-height 32px
+    min-width 80px
+    @extend .fs-s
+    padding 0 20px
+
+  .btn--size-m
+    height 36px
+    line-height 36px
+    min-width 120px
+    @extend .fs-m
+    padding 0 20px
+
+  .btn--size-l
+    height 48px
+    line-height 48px
+    min-width 140px
+    @extend .fs-l
+    padding 0 40px
+
+  // .btn--size-xl
+  //   height 60px
+  //   line-height 60px
+  //   min-width 400px
+  //   @extend .fs-xl
+  //   padding 0 20px
+
+
+// pagination -------------------
+
+  .area-pagination
+    height 52px
+    background var(--ui-bg-color)
+    padding 8px
+    box-sizing border-box
+    text-align right
+    nav
+      display inline-block
+    ul
+      display flex
+      margin 0 auto
+      li
+        text-align center
+        margin-right 4px
+        &:last-child
+          margin-right 0
+      .disabled
+        a
+          pointer-events none
+          background-color var(--disabled-light-color)
+    a
+      position relative
+      background-color var(--link-color)
+      display block
+      height 36px
+      width 36px
+      line-height 36px
+      @extend .r-round
+      // margin 0 2px
+      svg
+        position relative
+        top 2px
+    select
+      border-radius 0
+      border 1px solid var(--border-color)
+      cursor pointer
+      height 36px
+      width 120px
+
+// .tapOver -------------------
+
+  .tapOver
+    width 100%
+    height 100%
+    background var(--tapOver-color)
+    position absolute
+    top 0
+    left 0
+    .btn &
+      @extend .r-round
+
+  .odd.tapTableOver
+    background-color var(--tapOver-color) !important
+  .even.tapTableOver
+    background-color var(--tapOver-color) !important
+
+  .tapSortOver
+    background var(--tapSortOver-color) !important
+
+// .btn-group -------------------
+
+  .btn-group
+    display flex
+    align-content center
+    justify-content center
+    margin-top 20px
+    +breakpoint(mb-max)
+      .btn
+        padding 0
+        height 48px
+        line-height 48px
+        min-width auto
+
+  .btn-group--col1
+    +breakpoint(mb-max)
+      .btn
+        width 100%
+
+  .btn-group--col2
+    .btn
+      &:first-child
+        margin-right 8px
+    +breakpoint(mb-max)
+      display flex
+      .btn
+        width 50%
+    form
+      margin-right 8px
+      &:last-child
+        margin-right 0px
+      +breakpoint(mb-max)
+        width 100%
+        .btn
+          width 100%
+
+  .btn-group--col3
+    .btn
+      margin-right 8px
+      &:last-child
+        margin-left 0
+    +breakpoint(mb-max)
+      display flex
+      .btn
+        width calc(100% / 3)
+    form
+      margin-right 8px
+      &:last-child
+        margin-right 0px
+      +breakpoint(mb-max)
+        width 100%
+        .btn
+          width 100%
+
+  .btn-group--rows
+    .btn
+      margin-bottom 8px
+      margin-right 8px
+      &:last-child
+        margin-right 0
+    +breakpoint(mb-max)
+      .btn
+        width 100%
+        &:first-child
+          margin-right 8px

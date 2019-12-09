@@ -1,0 +1,65 @@
+//- # section h2 title mixin ---------------------------
+
+  ## example
+
+    +titleH2(pageTitle, 'btn')
+
+mixin titleH2(text, option)
+  .title-h2
+    h2 #{text}
+    case option
+      when 'btn'
+        .title-h2__btn-group
+          block
+
+//- # section h2 with parent title mixin ---------------------------
+
+  ## example
+
+    +titleH2(pageTitle, 'cloud vision', 'btn')
+
+mixin titleH2ChildPage(text, parentTxt, option)
+  .title-h2
+    h2
+      a.parentTxt(href='#') #{parentTxt}
+      | #{text}
+    case option
+      when 'btn'
+        .title-h2__btn-group
+          block
+
+//- section h3 title mixin ---------------------------
+
+  ## example
+
+    +titleH3(pageTitle)
+
+mixin titleH3(text)
+  .title-h3
+    h3 #{text}
+
+//- section h4 title mixin ---------------------------
+
+  ## example
+
+    +titleH4(pageTitle)
+    
+mixin titleH4(text)
+  .title-h4
+    h4 #{text}
+    block
+
+//- # section h2 title mixin ---------------------------
+
+  ## example
+
+    +titleH2badge('pageTitle', '営業中', 'open', 'white')
+
+mixin titleH2badge(text, badgeTxt, badgeColor, txtColor, option)
+  .title-h2.title-h2-badge
+    i(class=`badge--color-${badgeColor} badge--text-color-${txtColor} badge`) #{badgeTxt}
+    h2 #{text}
+    case option
+      when 'btn'
+        .title-h2__btn-group
+          block

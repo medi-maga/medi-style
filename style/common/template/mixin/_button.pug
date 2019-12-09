@@ -1,0 +1,73 @@
+//- # button mixin ---------------------------
+
+  ## example
+
+    +button('action', 'm', 'Type something', 'modal1')
+
+mixin button(color, size, text, id)
+  button.btn.tap(class=`${modalClass || ''} btn--c-${color} btn--size-${size}`, id=`${id || ''}`) #{text}
+
+//- # buttonAnchor mixin ---------------------------
+
+  ## example
+
+    +buttonAnchor('action', 'm', 'Type something')
+
+mixin buttonAnchor(color, size, text, link)
+  a.btn.tap(class=`btn--c-${color} btn--size-${size}`, href=`${link}`) #{text}
+
+//- # btnGroup mixin ---------------------------
+
+  ## example
+
+    +btnGroup('col1')
+
+mixin btnGroup(layout)
+  case layout
+    when 'col1'
+      .btn-group.btn-group--col1
+        block
+    when 'col2'
+      .btn-group.btn-group--col2
+        block
+    when 'col3'
+      .btn-group.btn-group--col3
+        block
+    when 'rows'
+      .btn-group.btn-group--rows
+        block
+
+//- # listPagination mixin ---------------------------
+
+  ## example
+
+    +listPagination('active', 'active', 'disabled')
+
+mixin listPagination(first, prev, next)
+  .area-pagination
+    nav
+      ul
+        if prev == 'active'
+          li
+            a.tap(href='#')
+              +icon('arrow-thin_left', 'info', 's')
+        else
+          li.disabled
+            a(href='javascript:void(0)')
+              +icon('arrow-thin_left', 'info', 's')
+
+        li
+          select(name='example')
+            option(value='') 1ページ
+            option(value='') 2ページ
+            option(value='') 3ページ
+
+        if next == 'active'
+          li.next
+            a.tap(href='#')
+              +icon('arrow-thin_right', 'info', 's')
+        else
+          li.next.disabled
+            a(href='javascript:void(0)')
+              +icon('arrow-thin_right', 'info', 's')
+

@@ -1,0 +1,43 @@
+//- # left colmun global navigation mixin ---------------------------
+
+  ## example
+
+    +navGlobal(navGlobal)
+
+  ## data
+
+    -
+      navGlobal = [
+        { 'class': 'top', 'link': '/', 'text': 'トップ' }
+      ]
+
+mixin navGlobal(data)
+  .area-nav
+    nav
+      ul
+        each i in data
+          li(class=`nav--${i.class}`)
+            a.tap(href=`${i.link}`)
+              | #{i.text}
+              +icon('arrow-thin_right', 'action', 's')
+
+//- # tab navigation mixin ---------------------------
+
+  ## example
+
+    +navSub(navSub)
+
+  ## data
+
+    -
+      navSub = [
+        { 'class': 'top', 'link': '/', 'text': 'トップ' }
+      ]
+
+mixin navSub(data)
+  .section-nav
+    nav
+      ul
+        each i in data
+          li(class=`${i.class}`)
+            a.tap(href=`${i.link}`) #{i.text}

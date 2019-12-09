@@ -1,0 +1,37 @@
+//- # 二者択一 mixin ---------------------------
+
+  ## example
+
+    +modalContentEither('プロジェクトを削除しますが、宜しいでしょうか？', 'cancel', 'キャンセル', 'close', 'danger', '削除')
+
+mixin modalContentEither(mainTxt, btn1color, btn1txt, btn1action, btn2color, btn2txt)
+  .modal-content--either
+    .area-remove#modalClose
+      +icon('remove-thin', 'info', 'l')
+    p #{mainTxt}
+    +btnGroup('col2')
+      +button(btn1color, 'm', btn1txt, btn1action)
+      +button(btn2color, 'm', btn2txt)
+
+//- # シングルボタン mixin ---------------------------
+
+  ## example
+
+    +modalContentSingle('プロジェクトを削除しますが、宜しいでしょうか？', 'cancel', 'キャンセル', 'close')
+
+mixin modalContentSingle(mainTxt, btn1color, btn1txt, btn1action)
+  .modal-content--either
+    .area-remove#modalClose
+      +icon('remove-thin', 'info', 'l')
+    p #{mainTxt}
+    +btnGroup('col1')
+      +button(btn1color, 'm', btn1txt, btn1action)
+
+mixin modalContentOuter()
+  .modal-content--either
+    block
+
+mixin modalRemove()
+  .area-remove#modalClose
+    +icon('remove-thin', 'info', 'l')
+    block  
