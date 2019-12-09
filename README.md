@@ -1,5 +1,6 @@
 # medical
- - github pages : https://medi-maga.github.io/medi-style/style/style-guide/dest/index.html
+ - github pages  
+ - https://medi-maga.github.io/medi-style/style/style-guide/dest/index.html
 
 ## 導入手順
 
@@ -16,3 +17,16 @@ $ gulp refresh
 $ gulp
 ```
 
+### common project
+ - css  
+
+ - javascript  
+    common.js
+    bootstarp.min.js  
+    bootstarp-datetimepicker
+    jquery3.2.1.min.js  
+    popper.min.js  
+    svgxuse.min.js  
+  
+ - images  
+    no-images icon  
