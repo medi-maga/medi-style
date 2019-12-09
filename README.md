@@ -1,6 +1,10 @@
-# medical
- - github pages  
+# medical 
+
+## pages
+ 実装時はdest/フォルダを参照  
+ 
  - https://medi-maga.github.io/medi-style/style/style-guide/dest/index.html
+ 
 
 ## 導入手順
 
