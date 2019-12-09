@@ -1,7 +1,7 @@
-extends include/_base
+extends ../include/_base
 
 block data
-  include include/_data
+  include ../include/_data
   - pageTitle = 'Top page'
   - colClass = 'col1'
   - header = 'true'
@@ -50,7 +50,7 @@ block body
         .contents-area__image
           .contents-area__image-inner
             .contents-image
-              img(src="../images/image.jpg")
+              img(src="../../images/image.jpg")
         //- text info
         .contents-area__text-info
           .contents-area__text-kicker.fonts No.11 2019
@@ -64,8 +64,15 @@ block body
           .card-area__card-list
             .card
               .card-image
-                img(src="../images/icon-90.jpg")
+                img(src="../../images/icon-90.jpg")
               .card-txt.fonts card title
-
+            .card
+              .card-image
+                img(src="../../images/icon-90.jpg")
+              .card-txt.fonts card title
+            .card
+              .card-image
+                img(src="../../images/icon-90.jpg")
+              .card-txt.fonts card title
 
 block script

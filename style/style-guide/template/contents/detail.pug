@@ -1,0 +1,49 @@
+extends ../include/_base
+
+block data
+  include ../include/_data
+  - pageTitle = 'Contents Detail'
+  - colClass = 'col1'
+  - header = 'true'
+  - contentSide = 'true'
+  - footer_multi = 'true'
+  - footer = 'true'
+  - appNameTxt = ' logo title'
+  -
+    appFooter = [
+      {   
+        'footerText': [
+          {
+            'text': 'プライバシーポリシー' ,
+            'link': '#'
+          },
+          {
+            'text': '利用規約' ,
+            'link': '#'
+          },
+          {
+            'text': 'お問い合わせ' ,
+            'link': '#'
+          },
+          {
+            'text': 'お知らせ' ,
+            'link': '#'
+          }
+        ]
+      },
+      {
+        'copyright': '© xxxxx Ltd. All Rights Reserved.',
+        'link': '#'
+      }
+    ]
+
+block body
+
+  +titleH2('page detail')
+
+  .body-right
+    section
+      .title-description
+        .title.fonts NATIONAL GEOGRAPHIC
+
+block script
