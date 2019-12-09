@@ -1,15 +1,15 @@
 # medical
- - test medical
+ - URL : 
 
 
 ## 導入手順
 
-- style 内にて
+- style 
 ```
 // npm install
 $ npm i
 
-- style-gide 内にて
+- style-gide 
 // 初期化
 $ gulp refresh
 
