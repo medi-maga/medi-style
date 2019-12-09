@@ -12,8 +12,10 @@
 ```
 // npm install
 $ npm i
+```
 
 - style-gide 
+```
 // 初期化
 $ gulp refresh
 
